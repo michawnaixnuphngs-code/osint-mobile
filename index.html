@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09090c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <title>OSINT MOBILE</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #09090c;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 24px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #29212a;
+      padding-bottom: 18px;
+    }
+
+    .logo {
+      color: #ff3045;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .status {
+      color: #52d68a;
+      font-size: 11px;
+    }
+
+    .hero { margin-top: 42px; }
+
+    .hero h1 {
+      font-size: 34px;
+      line-height: 1.15;
+    }
+
+    .red { color: #ff3045; }
+
+    .sub {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .panel {
+      background: #15151c;
+      border: 1px solid #29212a;
+      border-radius: 15px;
+      padding: 20px;
+      margin-top: 28px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      border-radius: 9px;
+      border: 1px solid #38333d;
+      background: #09090c;
+      color: white;
+      margin: 12px 0;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      border-radius: 9px;
+      background: #c51e32;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .item {
+      background: #15151c;
+      border: 1px solid #29212a;
+      border-radius: 12px;
+      padding: 18px 12px;
+      font-size: 12px;
+    }
+
+    .item span {
+      color: #ff3045;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    footer {
+      margin-top: 40px;
+      color: #555;
+      text-align: center;
+      font-size: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">✝ OSINT MOBILE</div>
+  <div class="status">● SYSTEM READY</div>
+</header>
+
+<section class="hero">
+  <p class="red">PUBLIC INFORMATION SYSTEM</p>
+  <h1>INTELLIGENCE<br><span class="red">DASHBOARD</span></h1>
+  <p class="sub">Public information search & investigation</p>
+</section>
+
+<section class="panel">
+  <p class="red">PERSON SEARCH</p>
+  <input id="person" type="text"
+    placeholder="กรอกชื่อที่ต้องการค้นหา">
+
+  <button onclick="searchPerson()">
+    START SEARCH
+  </button>
+  <p id="message" class="sub"></p>
+</section>
+
+<section class="grid">
+  <div class="item"><span>⌕</span>WEB FOOTPRINT</div>
+  <div class="item"><span>◎</span>SOCIAL SEARCH</div>
+  <div class="item"><span>▤</span>NEWS SEARCH</div>
+  <div class="item"><span>⌖</span>PUBLIC RECORDS</div>
+</section>
+
+<footer>
+  OSINT MOBILE • PUBLIC DATA ONLY
+</footer>
+
+<script>
+function searchPerson() {
+  const name = document.getElementById("person").value.trim();
+  const message = document.getElementById("message");
+
+  if (!name) {
+    message.textContent = "กรุณากรอกชื่อก่อนค้นหา";
+    return;
+  }
+
+  message.textContent =
+    "ระบบพร้อมสำหรับการค้นหาข้อมูลสาธารณะ";
+
+  const query = encodeURIComponent('"' + name + '"');
+  window.open(
+    "https://www.google.com/search?q=" + query,
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>
